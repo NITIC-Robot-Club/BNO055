@@ -8,8 +8,7 @@ int main() {
     printf("BNO055 Hello World\r\n\r\n");
     led = 1;
     bno.reset();
-    if (!bno.check())
-        while (true){
+    while (!bno.check()){
             led = !led;
             ThisThread::sleep_for(1ms);
             }
@@ -20,11 +19,17 @@ int main() {
         bno.get_calib();
         bno.get_angles();
         bno.get_quat();
-        printf("%c ",bno.calib);
-        printf("%f ",bno.euler.roll);
-        printf("%f ",bno.euler.pitch);
-        printf("%f ",bno.euler.yaw);
-        
+        bno.get_angleee();
+        printf("%f ",bno.euler.yaw); // <- 0~360 (初期位置0)
+        // printf("   ");
+        // printf("%f ",bno.quat.x);
+        // printf("%f ",bno.quat.y);
+        // printf("%f ",bno.quat.z);
+        // printf("%f ",bno.quat.w);
+        // printf("   ");
+        // printf("%f ",bno.angleee.roll);
+        // printf("%f ",bno.angleee.pitch);
+        // printf("%f ",bno.angleee.yaw);
         printf("\n");
         ThisThread::sleep_for(1ms);
     }
