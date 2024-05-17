@@ -20,9 +20,7 @@ int main() {
     printf("\r\n");
     while (true) {
         bno.setmode(OPERATION_MODE_NDOF); //魔法
-        bno.get_calib(); // 補正取得
         bno.get_angles(); // 角度取得
-        bno.get_quat();  // 4元数取得(詳しくは問題点LINKをチェック！)
         printf("%f\n",bno.euler.yaw); // <- 0~360 (初期位置0)
         ThisThread::sleep_for(1ms);
     }
