@@ -6,7 +6,7 @@ BNO055(9軸センサー)をMedOS6に対応させました。
 ```cpp
 #include "mbed.h"
 #include "BNO055.h"
-BNO055 bno(D14,D15); //I2C
+BNO055 bno(D14,D15); //I2C SDA,SCL
 
 int main() {
     printf("BNO055 Hello World\r\n\r\n");
